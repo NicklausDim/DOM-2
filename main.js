@@ -185,14 +185,12 @@ console.log(getEl('#target > h4'));
 //getEl('#target').innerHTML = 'TEST 123';
 
 console.log(getEl('#target > h4').innerHTML = "HOP!");
-
-
-
+/* 
+v1:
 function getEl(query) {
     let res = document.querySelectorAll(query);
     console.log(res);
 
-    let output;
     if(res.length > 1) {
         output = [];
         for (let i = 0; i < res.length; i++) {
@@ -203,6 +201,197 @@ function getEl(query) {
         output = res[0];
     } else {
         output = null;
-    }
+    } 
+
     return output;
+}
+ */
+
+/* 
+//V2:
+function getEl(query) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    let output = null;
+
+    switch (res.length) {
+        case 0:
+            break;
+
+        case 1:
+            output = res[0];
+            break;
+    
+        default:
+            output = [];
+            for (let i = 0; i < res.length; i++) {
+                output.push(res[i]);
+            }
+            break;
+    }
+
+    return output;
+}
+ */
+
+getEl('#test').style.backgroundColor = 'pink';
+
+/* 
+//V3:
+function getEl (query, arr) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    if (arr) {
+        let output = [];
+        switch (res.length) {
+            case 0:
+                break;
+            case 1:
+                output.push(res[0]);
+                break;
+            default:
+                output = [];
+                for (let i = 0; i < res.length; i++) {
+                    output.push(res[i]);
+                }
+                break;
+        }
+        return output;
+    } else {
+        let output = null;
+
+        switch (res.length) {
+            case 0:
+                break;
+            case 1:
+                output = res[0];
+                break;
+            default:
+                output = [];
+                for (let i = 0; i < res.length; i++) {
+                    output.push(res[i]);
+                }
+                break;
+        }
+        return output;
+    }
+}
+ */
+console.log(getEl('#target'.true));
+
+
+
+//V4.1:
+function getEl (query, arr) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    if (arr) {
+        let output = [];
+        switch (res.length) {
+            case 0:
+                break;
+            case 1:
+                output.push(res[0]);
+                break;
+            default:
+                output = [];
+                for (let i = 0; i < res.length; i++) {
+                    output.push(res[i]);
+                }
+                break;
+        }
+        return output;
+    } else {
+        let output = null;
+
+        switch (res.length) {
+            case 0:
+                break;
+            case 1:
+                output = res[0];
+                break;
+            default:
+                output = [];
+                for (let i = 0; i < res.length; i++) {
+                    output.push(res[i]);
+                }
+                break;
+        }
+        return output;
+    }
+}
+
+
+//V4.2:
+function getEl (query, arr) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    let output;
+
+    switch (res.length) {
+        case 0:
+            if (arr) {
+                output = [];
+            } else {
+                output = null;
+            }
+            break;
+        case 1:
+            if (arr) {
+                output.push(res[0]);
+            } else {
+                output = res[0];
+            }
+            
+            break;
+        default:
+            output = [];
+            for (let i = 0; i < res.length; i++) {
+                output.push(res[i]);
+            }
+            break;
+    }
+    
+    return output;
+    
+}
+
+console.log(getEl('#target'));
+
+
+
+
+
+
+//V4.3:
+function getEl (query, arr) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    let output = null;
+
+    switch (res.length) {
+        case 0:
+            break;
+        case 1:
+            if (arr) {
+                output.push(res[0]);
+            } else {
+                output = res[0];
+            }
+            break;
+        default:
+            output = [];
+            for (let i = 0; i < res.length; i++) {
+                output.push(res[i]);
+            }
+            break;
+    }
+
+    return output;
+
 }
