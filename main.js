@@ -282,7 +282,7 @@ function getEl (query, arr) {
 console.log(getEl('#target'.true));
 
 
-
+/* 
 //V4.1:
 function getEl (query, arr) {
     let res = document.querySelectorAll(query);
@@ -323,8 +323,8 @@ function getEl (query, arr) {
         return output;
     }
 }
-
-
+ */
+/* 
 //V4.2:
 function getEl (query, arr) {
     let res = document.querySelectorAll(query);
@@ -359,7 +359,7 @@ function getEl (query, arr) {
     return output;
     
 }
-
+ */
 console.log(getEl('#target'));
 
 
@@ -379,6 +379,7 @@ function getEl (query, arr) {
             break;
         case 1:
             if (arr) {
+                output = [];
                 output.push(res[0]);
             } else {
                 output = res[0];
@@ -395,3 +396,39 @@ function getEl (query, arr) {
     return output;
 
 }
+
+
+//v5:
+function $ (query, arr) {
+    let res = document.querySelectorAll(query);
+    console.log(res);
+
+    let output = null;
+
+    switch (res.length) {
+        case 0:
+            break;
+        case 1:
+            if (arr) {
+                output = [];
+                output.push(res[0]);
+            } else {
+                output = res[0];
+            }
+            break;
+        default:
+            output = [];
+            for (let i = 0; i < res.length; i++) {
+                output.push(res[i]);
+            }
+            break;
+    }
+
+    return output;
+
+}
+
+
+console.log($('#test', true));
+
+$('#target > h4:nth-of-type(2)').style.backgroundColor = 'blue';
